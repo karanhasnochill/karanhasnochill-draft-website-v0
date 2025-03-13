@@ -10,6 +10,9 @@ import Footer from "@/components/footer";
 
 const Index = () => {
   useEffect(() => {
+    // Set dark mode as default
+    document.documentElement.classList.add('dark');
+    
     // For demonstrating animation on page load
     const mainContent = document.getElementById("main-content");
     if (mainContent) {
@@ -42,7 +45,7 @@ const Index = () => {
   return (
     <div
       id="main-content"
-      className="min-h-screen bg-background text-foreground opacity-0 transition-opacity duration-500"
+      className="min-h-screen bg-background text-foreground opacity-0 transition-opacity duration-500 dark"
     >
       <Navigation />
       <HeroSection />

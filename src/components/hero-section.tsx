@@ -20,15 +20,23 @@ const HeroSection = () => {
       className="min-h-screen flex flex-col items-center justify-center px-6 pt-20"
     >
       <div className="container max-w-5xl mx-auto text-center flex flex-col items-center animate-fade-in">
+        {/* Circular frame for profile photo */}
+        <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-primary mb-8 animate-scale-in">
+          {/* Placeholder image - to be replaced later */}
+          <div className="w-full h-full bg-secondary flex items-center justify-center text-secondary-foreground">
+            <span className="text-lg font-medium">Photo</span>
+          </div>
+        </div>
+        
         <span className="inline-block px-3 py-1 mb-6 text-sm font-medium bg-primary/10 text-primary rounded-full animate-slide-up">
           Welcome to my portfolio
         </span>
         
-        <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight text-balance">
+        <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight text-balance text-center">
           Creating digital experiences that inspire
         </h1>
         
-        <p className="max-w-2xl mx-auto text-lg md:text-xl text-foreground/80 mb-10 text-balance animate-slide-up" style={{ animationDelay: "0.1s" }}>
+        <p className="max-w-2xl mx-auto text-lg md:text-xl text-foreground/80 mb-10 text-balance text-center animate-slide-up" style={{ animationDelay: "0.1s" }}>
           I craft engaging projects and capture epic gaming moments. Explore my work and let's connect.
         </p>
         

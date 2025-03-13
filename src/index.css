@@ -94,11 +94,16 @@
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
+
+  /* Center text elements by default */
+  h1, h2, h3, h4, h5, h6, p {
+    @apply text-center;
+  }
 }
 
 @layer components {
   .glass-panel {
-    @apply bg-white/80 backdrop-blur-sm border border-white/20 shadow-sm;
+    @apply bg-white/80 dark:bg-black/20 backdrop-blur-sm border border-white/20 shadow-sm;
   }
   
   .text-balance {
@@ -122,4 +127,9 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Default to dark mode */
+:root {
+  color-scheme: dark;
 }

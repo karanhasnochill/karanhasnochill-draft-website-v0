@@ -53,29 +53,38 @@ const Navigation = () => {
     });
   };
 
+  // Map display names to section IDs
+  const sectionNames = {
+    "hero": "Karan",
+    "about": "About",
+    "projects": "Projects",
+    "videos": "Videos",
+    "contact": "Contact"
+  };
+
   return (
     <>
       <header 
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 py-4",
-          isScrolled ? "bg-white/80 backdrop-blur-md shadow-sm" : "bg-transparent"
+          isScrolled ? "dark:bg-background/80 bg-white/80 backdrop-blur-md shadow-sm" : "bg-transparent"
         )}
       >
         <nav className="container mx-auto flex items-center justify-center">
           <ul className="flex items-center space-x-1 sm:space-x-2">
-            {["hero", "about", "projects", "videos", "contact"].map((section) => (
-              <li key={section}>
+            {Object.entries(sectionNames).map(([id, name]) => (
+              <li key={id}>
                 <button
-                  onClick={() => scrollToSection(section)}
+                  onClick={() => scrollToSection(id)}
                   className={cn(
                     "relative px-3 py-2 text-sm font-medium transition-colors",
-                    activeSection === section 
+                    activeSection === id 
                       ? "text-primary" 
                       : "text-foreground/70 hover:text-foreground"
                   )}
                 >
-                  {section.charAt(0).toUpperCase() + section.slice(1)}
-                  {activeSection === section && (
+                  {name}
+                  {activeSection === id && (
                     <span 
                       className="absolute bottom-0 left-1/2 w-1 h-1 bg-primary rounded-full transform -translate-x-1/2 transition-all duration-300"
                       style={{ opacity: 1 }}
