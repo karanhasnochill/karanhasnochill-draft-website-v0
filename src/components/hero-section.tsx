@@ -1,0 +1,66 @@
+
+import React from "react";
+import { Button } from "@/components/ui-custom/button"; 
+import { ArrowDown } from "lucide-react";
+
+const HeroSection = () => {
+  const scrollToAbout = () => {
+    const aboutSection = document.getElementById("about");
+    if (aboutSection) {
+      window.scrollTo({
+        top: aboutSection.offsetTop - 80,
+        behavior: "smooth"
+      });
+    }
+  };
+
+  return (
+    <section 
+      id="hero" 
+      className="min-h-screen flex flex-col items-center justify-center px-6 pt-20"
+    >
+      <div className="container max-w-5xl mx-auto text-center flex flex-col items-center animate-fade-in">
+        <span className="inline-block px-3 py-1 mb-6 text-sm font-medium bg-primary/10 text-primary rounded-full animate-slide-up">
+          Welcome to my portfolio
+        </span>
+        
+        <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight text-balance">
+          Creating digital experiences that inspire
+        </h1>
+        
+        <p className="max-w-2xl mx-auto text-lg md:text-xl text-foreground/80 mb-10 text-balance animate-slide-up" style={{ animationDelay: "0.1s" }}>
+          I craft engaging projects and capture epic gaming moments. Explore my work and let's connect.
+        </p>
+        
+        <div className="flex flex-col sm:flex-row gap-4 animate-slide-up" style={{ animationDelay: "0.2s" }}>
+          <Button 
+            onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
+            className="min-w-[160px]"
+          >
+            View Projects
+          </Button>
+          
+          <Button 
+            variant="outline" 
+            onClick={() => document.getElementById("videos")?.scrollIntoView({ behavior: "smooth" })}
+            className="min-w-[160px]"
+          >
+            Watch Videos
+          </Button>
+        </div>
+      </div>
+      
+      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-pulse-slow">
+        <button 
+          onClick={scrollToAbout}
+          className="bg-secondary text-secondary-foreground p-3 rounded-full transition-transform hover:translate-y-1"
+          aria-label="Scroll down"
+        >
+          <ArrowDown size={20} />
+        </button>
+      </div>
+    </section>
+  );
+};
+
+export default HeroSection;
