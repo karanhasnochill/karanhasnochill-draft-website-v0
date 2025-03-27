@@ -4,12 +4,12 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui-custom/button";
 import { ExternalLink, Github } from "lucide-react";
 
-// Sample project data
+// Updated project data
 const projectsData = [
   {
-    title: "Modern Portfolio Website",
+    title: "InterioXr Labs",
     description: "A responsive portfolio website built with React and TailwindCSS, featuring smooth animations and modern design.",
-    tags: ["React", "TailwindCSS", "Framer Motion"],
+    tags: ["Interior Design", "Virtual Reality", "Mixed Reality", "UI/UX"],
     image: "https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     links: {
       live: "#",
@@ -17,9 +17,9 @@ const projectsData = [
     }
   },
   {
-    title: "Game Companion App",
+    title: "eBuildBazaar Platforms",
     description: "A companion application for gamers to track stats, share highlights, and connect with fellow players.",
-    tags: ["React Native", "Firebase", "Redux"],
+    tags: ["Turnkey Construction", "Project Management", "Home Improvement", "Labour Hire"],
     image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     links: {
       live: "#",
@@ -27,9 +27,9 @@ const projectsData = [
     }
   },
   {
-    title: "E-commerce Platform",
+    title: "Booze Wayne",
     description: "A full-featured e-commerce platform with product management, cart functionality, and payment processing.",
-    tags: ["NextJS", "Stripe", "MongoDB"],
+    tags: ["Cocktail Kits", "Cocktail Parties", "Food Catering", "Packaged Food"],
     image: "https://images.unsplash.com/photo-1525373698358-041e3a460346?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     links: {
       live: "#",
@@ -37,9 +37,9 @@ const projectsData = [
     }
   },
   {
-    title: "Weather Dashboard",
+    title: "Virtual Utility",
     description: "A real-time weather dashboard with location tracking, forecasts, and severe weather alerts.",
-    tags: ["Vue", "OpenWeather API", "Tailwind"],
+    tags: ["Startup Consulting", "Admin & Legal Support", "Territory Maps", "AI Tools"],
     image: "https://images.unsplash.com/photo-1530908295418-a12e326966ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     links: {
       live: "#",
@@ -90,14 +90,14 @@ const ProjectsSection = () => {
                   {project.tags.map((tag, tagIndex) => (
                     <span
                       key={tagIndex}
-                      className="inline-block px-2 py-1 text-xs font-medium bg-secondary rounded-full"
+                      className="inline-block px-2 py-1 text-xs font-medium bg-secondary text-black rounded-full"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
-                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                <p className="text-foreground/80 mb-4">{project.description}</p>
+                <h3 className="text-xl font-bold mb-2 text-black">{project.title}</h3>
+                <p className="text-black mb-4">{project.description}</p>
                 <div className="flex gap-3">
                   <Button
                     variant="outline"
@@ -105,8 +105,9 @@ const ProjectsSection = () => {
                     icon={<ExternalLink size={16} />}
                     iconPosition="right"
                     onClick={() => window.open(project.links.live, "_blank")}
+                    className="text-black"
                   >
-                    Live Demo
+                    Visit Website
                   </Button>
                   <Button
                     variant="ghost"
@@ -114,6 +115,7 @@ const ProjectsSection = () => {
                     icon={<Github size={16} />}
                     iconPosition="right"
                     onClick={() => window.open(project.links.github, "_blank")}
+                    className="text-black"
                   >
                     Code
                   </Button>
