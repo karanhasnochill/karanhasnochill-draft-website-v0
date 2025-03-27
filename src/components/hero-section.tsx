@@ -2,6 +2,7 @@
 import React from "react";
 import { Button } from "@/components/ui-custom/button"; 
 import { ArrowDown } from "lucide-react";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const HeroSection = () => {
   const scrollToAbout = () => {
@@ -20,12 +21,16 @@ const HeroSection = () => {
       className="min-h-screen flex flex-col items-center justify-center px-6 pt-20"
     >
       <div className="container max-w-5xl mx-auto text-center flex flex-col items-center animate-fade-in">
-        {/* Circular frame for profile photo */}
+        {/* Profile photo */}
         <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-primary mb-8 animate-scale-in">
-          {/* Placeholder image - to be replaced later */}
-          <div className="w-full h-full bg-secondary flex items-center justify-center text-secondary-foreground">
-            <span className="text-lg font-medium">Photo</span>
-          </div>
+          <Avatar className="w-full h-full">
+            <AvatarImage 
+              src="/lovable-uploads/f4a3bc47-45e7-44dd-ac29-6791e541cd76.png" 
+              alt="Karan's profile picture" 
+              className="w-full h-full object-cover"
+            />
+            <AvatarFallback className="text-lg font-medium">Karan</AvatarFallback>
+          </Avatar>
         </div>
         
         <span className="inline-block px-3 py-1 mb-6 text-sm font-medium bg-primary/10 text-primary rounded-full animate-slide-up">

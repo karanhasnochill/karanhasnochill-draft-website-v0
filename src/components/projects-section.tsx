@@ -8,7 +8,7 @@ import { ExternalLink, Github } from "lucide-react";
 const projectsData = [
   {
     title: "InterioXr Labs",
-    description: "A responsive portfolio website built with React and TailwindCSS, featuring smooth animations and modern design.",
+    description: "Regenerating Scattered Realities",
     tags: ["Interior Design", "Virtual Reality", "Mixed Reality", "UI/UX"],
     image: "https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     links: {
@@ -18,7 +18,7 @@ const projectsData = [
   },
   {
     title: "eBuildBazaar Platforms",
-    description: "A companion application for gamers to track stats, share highlights, and connect with fellow players.",
+    description: "Regenerating Smart Spaces",
     tags: ["Turnkey Construction", "Project Management", "Home Improvement", "Labour Hire"],
     image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     links: {
@@ -28,7 +28,7 @@ const projectsData = [
   },
   {
     title: "Booze Wayne",
-    description: "A full-featured e-commerce platform with product management, cart functionality, and payment processing.",
+    description: "Regenerating Party Cultures",
     tags: ["Cocktail Kits", "Cocktail Parties", "Food Catering", "Packaged Food"],
     image: "https://images.unsplash.com/photo-1525373698358-041e3a460346?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     links: {
@@ -38,7 +38,7 @@ const projectsData = [
   },
   {
     title: "Virtual Utility",
-    description: "A real-time weather dashboard with location tracking, forecasts, and severe weather alerts.",
+    description: "Regenerating Smart Tools",
     tags: ["Startup Consulting", "Admin & Legal Support", "Territory Maps", "AI Tools"],
     image: "https://images.unsplash.com/photo-1530908295418-a12e326966ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     links: {
