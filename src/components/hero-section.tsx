@@ -34,15 +34,15 @@ const HeroSection = () => {
         </div>
         
         <span className="inline-block px-3 py-1 mb-6 text-sm font-medium bg-primary/10 text-primary rounded-full animate-slide-up">
-          Regenerating Scattered Realities
+          Science Entrepreneur
         </span>
         
         <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight text-balance text-center">
-          for the world inside my head
+          Regenerating Scattered Realities for the world inside my head
         </h1>
         
         <p className="max-w-2xl mx-auto text-lg md:text-xl text-foreground/80 mb-10 text-balance text-center animate-slide-up" style={{ animationDelay: "0.1s" }}>
-          Science Entrepreneur - Tech, Design, Business.
+          Tech, Design, Business.
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 animate-slide-up" style={{ animationDelay: "0.2s" }}>
@@ -55,10 +55,10 @@ const HeroSection = () => {
           
           <Button 
             variant="outline" 
-            onClick={() => document.getElementById("videos")?.scrollIntoView({ behavior: "smooth" })}
+            onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
             className="min-w-[160px]"
           >
-            Watch Videos
+            Contact Me
           </Button>
         </div>
       </div>

@@ -1,5 +1,6 @@
 
 import React from "react";
+import { Palette, Code, Video } from "lucide-react";
 
 const AboutSection = () => {
   return (
@@ -13,7 +14,7 @@ const AboutSection = () => {
             About Me
           </span>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Passionate Creator & Gamer
+            Passionate Designer & Creator
           </h2>
           <div className="w-12 h-1 bg-primary rounded-full mb-6"></div>
           <p className="max-w-2xl text-foreground/80 text-lg">
@@ -25,15 +26,18 @@ const AboutSection = () => {
           {[
             {
               title: "Designer",
-              description: "I create visually stunning and intuitive interfaces that delight users and achieve business goals."
+              description: "I create visually stunning and intuitive interfaces that delight users and achieve business goals.",
+              icon: <Palette size={32} className="text-primary" />
             },
             {
               title: "Developer",
-              description: "I build robust applications using modern technologies, ensuring optimal performance and reliability."
+              description: "I build robust applications using modern technologies, ensuring optimal performance and reliability.",
+              icon: <Code size={32} className="text-primary" />
             },
             {
               title: "Content Creator",
-              description: "I capture and share gaming highlights, creating entertaining and engaging video content."
+              description: "I capture and share gaming highlights, creating entertaining and engaging video content.",
+              icon: <Video size={32} className="text-primary" />
             }
           ].map((item, index) => (
             <div 
@@ -41,7 +45,10 @@ const AboutSection = () => {
               className="glass-panel p-6 rounded-2xl transform transition-all duration-300 hover:translate-y-[-5px]"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
+              <div className="flex justify-center mb-4">
+                {item.icon}
+              </div>
+              <h3 className="text-xl font-semibold mb-3 text-center">{item.title}</h3>
               <p className="text-foreground/80">{item.description}</p>
             </div>
           ))}
