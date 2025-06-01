@@ -34,15 +34,15 @@ const HeroSection = () => {
         </div>
         
         <span className="inline-block px-3 py-1 mb-6 text-sm font-medium bg-primary/10 text-primary rounded-full animate-slide-up">
-          Welcome to my portfolio
+          Regenerating Scattered Realities
         </span>
         
         <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight text-balance text-center">
-          Creating digital experiences that inspire
+          for the world inside my head
         </h1>
         
         <p className="max-w-2xl mx-auto text-lg md:text-xl text-foreground/80 mb-10 text-balance text-center animate-slide-up" style={{ animationDelay: "0.1s" }}>
-          I craft engaging projects and capture epic gaming moments. Explore my work and let's connect.
+          Science Entrepreneur - Tech, Design, Business.
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 animate-slide-up" style={{ animationDelay: "0.2s" }}>
