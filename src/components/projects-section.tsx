@@ -37,10 +37,10 @@ const projectsData = [
     }
   },
   {
-    title: "RapiDash",
+    title: "Virtual Utility",
     description: "Regenerating Smart Tools",
     tags: ["Startup Consulting", "Admin & Legal Support", "Territory Maps", "AI Tools"],
-    image: "/lovable-uploads/5ee5c94b-73a6-4512-8c4c-ad3371a61086.png",
+    image: "https://images.unsplash.com/photo-1530908295418-a12e326966ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     links: {
       live: "#",
       github: "#"
@@ -59,7 +59,7 @@ const ProjectsSection = () => {
             Projects
           </span>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            What I do at the office when I'm not on my PS5
+            Featured Work
           </h2>
           <div className="w-12 h-1 bg-primary rounded-full mb-6"></div>
           <p className="max-w-2xl text-foreground/80 text-lg">
