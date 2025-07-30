@@ -1,9 +1,8 @@
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui-custom/button";
 import { ExternalLink, Github } from "lucide-react";
-import { processImageUrl } from "@/utils/backgroundRemoval";
 
 // Updated project data
 const projectsData = [
@@ -51,21 +50,6 @@ const projectsData = [
 
 const ProjectsSection = () => {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
-  const [processedImages, setProcessedImages] = useState<{ [key: number]: string }>({});
-
-  useEffect(() => {
-    // Process RapiDash logo to remove background
-    const processRapiDashImage = async () => {
-      try {
-        const processedUrl = await processImageUrl("/lovable-uploads/5ee5c94b-73a6-4512-8c4c-ad3371a61086.png");
-        setProcessedImages(prev => ({ ...prev, 3: processedUrl }));
-      } catch (error) {
-        console.error('Failed to process RapiDash image:', error);
-      }
-    };
-
-    processRapiDashImage();
-  }, []);
 
   return (
     <section id="projects" className="py-24 px-6 bg-secondary/50">
@@ -92,13 +76,12 @@ const ProjectsSection = () => {
               onMouseEnter={() => setHoveredProject(index)}
               onMouseLeave={() => setHoveredProject(null)}
             >
-              <div className="h-56 overflow-hidden bg-gradient-to-br from-secondary/20 to-secondary/40 flex items-center justify-center">
+              <div className="h-56 overflow-hidden">
                 <img
-                  src={processedImages[index] || project.image}
+                  src={project.image}
                   alt={project.title}
                   className={cn(
-                    "transition-transform duration-500 object-contain max-h-full max-w-full p-4",
-                    index === 3 ? "h-32 w-auto" : "w-full h-full object-cover",
+                    "w-full h-full object-cover transition-transform duration-500",
                     hoveredProject === index ? "scale-110" : "scale-100"
                   )}
                 />
