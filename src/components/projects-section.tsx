@@ -37,10 +37,10 @@ const projectsData = [
     }
   },
   {
-    title: "Virtual Utility",
+    title: "RapiDash",
     description: "Regenerating Smart Tools",
     tags: ["Startup Consulting", "Admin & Legal Support", "Territory Maps", "AI Tools"],
-    image: "https://images.unsplash.com/photo-1530908295418-a12e326966ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    image: "/lovable-uploads/5ee5c94b-73a6-4512-8c4c-ad3371a61086.png",
     links: {
       live: "#",
       github: "#"
