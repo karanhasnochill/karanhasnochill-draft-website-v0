@@ -59,7 +59,7 @@ const ProjectsSection = () => {
             Projects
           </span>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Featured Work
+            What I do at the office when I'm not on my PS5
           </h2>
           <div className="w-12 h-1 bg-primary rounded-full mb-6"></div>
           <p className="max-w-2xl text-foreground/80 text-lg">
