@@ -1,7 +1,7 @@
 
 import React from "react";
 import { Button } from "@/components/ui-custom/button";
-import { Mail, Github, Linkedin, Twitter } from "lucide-react";
+import { Mail, Github, Linkedin, Youtube, Instagram } from "lucide-react";
 
 const ContactSection = () => {
   return (
@@ -21,34 +21,43 @@ const ContactSection = () => {
         </div>
         
         <div className="flex flex-col items-center">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl w-full mb-12">
-            <div className="glass-panel p-6 rounded-2xl flex flex-col items-center text-center transform transition-all duration-300 hover:translate-y-[-5px]">
-              <Mail className="text-primary mb-4 w-10 h-10" />
-              <h3 className="text-xl font-semibold mb-2">Email Me</h3>
-              <p className="text-foreground/80 mb-4">I'll respond as quickly as possible</p>
-              <Button 
-                onClick={() => window.location.href = "mailto:your.email@example.com"}
-                className="mt-auto"
-              >
-                Send Email
-              </Button>
-            </div>
-            
-            <div className="glass-panel p-6 rounded-2xl flex flex-col items-center text-center transform transition-all duration-300 hover:translate-y-[-5px]">
-              <div className="mb-4 flex space-x-4">
-                <Github className="text-foreground w-8 h-8" />
-                <Linkedin className="text-foreground w-8 h-8" />
-                <Twitter className="text-foreground w-8 h-8" />
+          <div className="flex justify-center max-w-2xl w-full mb-12">
+            <div className="glass-panel p-8 rounded-2xl flex flex-col items-center text-center transform transition-all duration-300 hover:translate-y-[-5px] max-w-md">
+              <h3 className="text-xl font-semibold mb-4">Social Media</h3>
+              <p className="text-foreground/80 mb-6">Please don't expect a timely response from me - I may be occupied somewhere, playing video games, or just feeding stray cats.</p>
+              <div className="flex flex-wrap gap-3 justify-center">
+                <Button 
+                  size="sm"
+                  onClick={() => window.location.href = "mailto:your.email@example.com"}
+                  icon={<Mail size={16} />}
+                >
+                  Email
+                </Button>
+                <Button 
+                  size="sm"
+                  variant="outline"
+                  onClick={() => window.open("https://instagram.com", "_blank")}
+                  icon={<Instagram size={16} />}
+                >
+                  Instagram
+                </Button>
+                <Button 
+                  size="sm"
+                  variant="outline"
+                  onClick={() => window.open("https://linkedin.com", "_blank")}
+                  icon={<Linkedin size={16} />}
+                >
+                  LinkedIn
+                </Button>
+                <Button 
+                  size="sm"
+                  variant="outline"
+                  onClick={() => window.open("https://youtube.com", "_blank")}
+                  icon={<Youtube size={16} />}
+                >
+                  YouTube
+                </Button>
               </div>
-              <h3 className="text-xl font-semibold mb-2">Social Media</h3>
-              <p className="text-foreground/80 mb-4">Follow me on social media for updates</p>
-              <Button 
-                variant="outline"
-                onClick={() => window.open("https://github.com", "_blank")}
-                className="mt-auto"
-              >
-                Follow Me
-              </Button>
             </div>
           </div>
           
