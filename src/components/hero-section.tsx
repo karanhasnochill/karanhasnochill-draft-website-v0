@@ -3,8 +3,6 @@ import React from "react";
 import { Button } from "@/components/ui-custom/button"; 
 import { ArrowDown } from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import AnimatedSpaceBackground from "@/components/animated-space-background";
-
 const HeroSection = () => {
   const scrollToAbout = () => {
     const aboutSection = document.getElementById("about");
@@ -21,7 +19,7 @@ const HeroSection = () => {
       id="hero" 
       className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-20 overflow-hidden"
     >
-      <AnimatedSpaceBackground />
+      
       <div className="relative z-10 container max-w-5xl mx-auto text-center flex flex-col items-center animate-fade-in">
         {/* Profile photo */}
         <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-primary mb-8 animate-scale-in">

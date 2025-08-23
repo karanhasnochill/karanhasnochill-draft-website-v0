@@ -7,7 +7,6 @@ import ProjectsSection from "@/components/projects-section";
 import VideosSection from "@/components/videos-section";
 import ContactSection from "@/components/contact-section";
 import Footer from "@/components/footer";
-import AnimatedSpaceBackground from "@/components/animated-space-background";
 
 const Index = () => {
   useEffect(() => {
@@ -46,18 +45,15 @@ const Index = () => {
   return (
     <div
       id="main-content"
-      className="relative min-h-screen bg-background text-foreground opacity-0 transition-opacity duration-500 dark overflow-hidden"
+      className="min-h-screen bg-background text-foreground opacity-0 transition-opacity duration-500 dark"
     >
-      <AnimatedSpaceBackground />
-      <div className="relative z-10">
-        <Navigation />
-        <HeroSection />
-        <AboutSection />
-        <ProjectsSection />
-        <VideosSection />
-        <ContactSection />
-        <Footer />
-      </div>
+      <Navigation />
+      <HeroSection />
+      <AboutSection />
+      <ProjectsSection />
+      <VideosSection />
+      <ContactSection />
+      <Footer />
     </div>
   );
 };
