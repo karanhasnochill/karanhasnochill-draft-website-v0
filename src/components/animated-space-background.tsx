@@ -19,42 +19,42 @@ const AnimatedSpaceBackground = () => {
       const objects: SpaceObject[] = [];
       
       // Generate stars
-      for (let i = 0; i < 20; i++) {
+      for (let i = 0; i < 80; i++) {
         objects.push({
           id: i,
           type: 'star',
           x: Math.random() * 100,
           y: Math.random() * 100,
           size: Math.random() * 3 + 1,
-          opacity: Math.random() * 0.3 + 0.1,
+          opacity: Math.random() * 0.4 + 0.1,
           animationDuration: Math.random() * 4 + 3,
           delay: Math.random() * 5
         });
       }
       
       // Generate spaceships
-      for (let i = 20; i < 25; i++) {
+      for (let i = 80; i < 88; i++) {
         objects.push({
           id: i,
           type: 'spaceship',
           x: Math.random() * 100,
           y: Math.random() * 100,
           size: Math.random() * 8 + 4,
-          opacity: Math.random() * 0.2 + 0.05,
+          opacity: Math.random() * 0.25 + 0.05,
           animationDuration: Math.random() * 8 + 6,
           delay: Math.random() * 10
         });
       }
       
       // Generate planets
-      for (let i = 25; i < 30; i++) {
+      for (let i = 88; i < 96; i++) {
         objects.push({
           id: i,
           type: 'planet',
           x: Math.random() * 100,
           y: Math.random() * 100,
           size: Math.random() * 15 + 8,
-          opacity: Math.random() * 0.15 + 0.03,
+          opacity: Math.random() * 0.2 + 0.05,
           animationDuration: Math.random() * 12 + 8,
           delay: Math.random() * 15
         });
@@ -128,7 +128,7 @@ const AnimatedSpaceBackground = () => {
   };
 
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    <div className="fixed inset-0 pointer-events-none z-0">
       {spaceObjects.map(renderSpaceObject)}
     </div>
   );
