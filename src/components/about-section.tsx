@@ -1,6 +1,8 @@
-
 import React from "react";
 import { Palette, Code, Video } from "lucide-react";
+import designerBg from "@/assets/designer-bg.jpg";
+import developerBg from "@/assets/developer-bg.jpg";
+import contentCreatorBg from "@/assets/content-creator-bg.jpg";
 
 const AboutSection = () => {
   return (
@@ -27,29 +29,39 @@ const AboutSection = () => {
             {
               title: "Designer",
               description: "I create visually stunning and intuitive interfaces that delight users and achieve business goals.",
-              icon: <Palette size={32} className="text-primary" />
+              icon: <Palette size={32} className="text-primary" />,
+              backgroundImage: designerBg
             },
             {
               title: "Developer",
               description: "I build robust applications using modern technologies, ensuring optimal performance and reliability.",
-              icon: <Code size={32} className="text-primary" />
+              icon: <Code size={32} className="text-primary" />,
+              backgroundImage: developerBg
             },
             {
               title: "Content Creator",
               description: "I capture and share gaming highlights, creating entertaining and engaging video content.",
-              icon: <Video size={32} className="text-primary" />
+              icon: <Video size={32} className="text-primary" />,
+              backgroundImage: contentCreatorBg
             }
           ].map((item, index) => (
             <div 
               key={index}
-              className="glass-panel p-6 rounded-2xl transform transition-all duration-300 hover:translate-y-[-5px]"
+              className="glass-panel p-6 rounded-2xl transform transition-all duration-300 hover:translate-y-[-5px] relative overflow-hidden"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="flex justify-center mb-4">
+              <div 
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ 
+                  backgroundImage: `url(${item.backgroundImage})`,
+                  opacity: 0.1
+                }}
+              />
+              <div className="relative z-10 flex justify-center mb-4">
                 {item.icon}
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-center">{item.title}</h3>
-              <p className="text-foreground/80">{item.description}</p>
+              <h3 className="relative z-10 text-xl font-semibold mb-3 text-center">{item.title}</h3>
+              <p className="relative z-10 text-foreground/80">{item.description}</p>
             </div>
           ))}
         </div>
