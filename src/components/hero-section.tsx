@@ -3,6 +3,7 @@ import React from "react";
 import { Button } from "@/components/ui-custom/button";
 import { Briefcase, Mail } from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import profileImage from "@/assets/profile.png";
 
 const HeroSection = () => {
 
