@@ -25,6 +25,10 @@ const HeroSection = () => {
           </Avatar>
         </div>
         
+        <h2 className="text-2xl md:text-3xl font-semibold mb-3 animate-slide-up">
+          Karan Sethi
+        </h2>
+
         <span className="inline-block px-3 py-1 mb-6 text-sm font-medium bg-primary/10 text-primary rounded-full animate-slide-up">
           Science Entrepreneur
         </span>
