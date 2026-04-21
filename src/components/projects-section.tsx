@@ -172,12 +172,12 @@ const ProjectsSection = () => {
                   </h3>
                   <p className="text-foreground/80 mb-4">{project.description}</p>
 
-                  <div className={cn("flex flex-wrap gap-1.5 mb-4", isList ? "justify-start" : "justify-center")}>
+                  <div className={cn("flex flex-wrap gap-1.5 mb-4 min-h-[3.5rem] content-start", isList ? "justify-start" : "justify-center")}>
                     {project.tags.map((tag, tagIndex) => (
                       <span
                         key={tagIndex}
                         className={cn(
-                          "inline-block px-2 py-0.5 text-[10px] font-medium rounded-full whitespace-nowrap",
+                          "inline-block px-2 py-0.5 text-[10px] font-medium rounded-full whitespace-nowrap h-fit",
                           styles.tag
                         )}
                       >
