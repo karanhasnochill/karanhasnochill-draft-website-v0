@@ -1,6 +1,7 @@
 
 import React from "react";
 import { Button } from "@/components/ui-custom/button";
+import { Briefcase, Mail } from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const HeroSection = () => {
@@ -39,16 +40,18 @@ const HeroSection = () => {
         <div className="flex flex-col sm:flex-row gap-4 animate-slide-up" style={{ animationDelay: "0.2s" }}>
           <Button 
             onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
-            className="min-w-[160px]"
+            className="min-w-[160px] gap-2"
           >
+            <Briefcase size={18} />
             View Projects
           </Button>
           
           <Button 
             variant="outline" 
             onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-            className="min-w-[160px]"
+            className="min-w-[160px] gap-2"
           >
+            <Mail size={18} />
             Contact Me
           </Button>
         </div>
