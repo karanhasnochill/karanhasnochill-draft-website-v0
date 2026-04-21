@@ -2,7 +2,7 @@ import React from "react";
 import { Palette, Briefcase, Eye } from "lucide-react";
 import designerBg from "@/assets/designer-bg.jpg";
 import developerBg from "@/assets/developer-bg.jpg";
-import contentCreatorBg from "@/assets/content-creator-bg.jpg";
+import natureBg from "@/assets/nature-bg.jpg";
 
 const AboutSection = () => {
   return (
@@ -42,7 +42,7 @@ const AboutSection = () => {
               title: "Observationist",
               description: "I see the world through unbridled filters limiting prior judgments to enable room for magic.",
               icon: <Eye size={32} className="text-primary" />,
-              backgroundImage: contentCreatorBg
+              backgroundImage: natureBg
             }
           ].map((item, index) => (
             <div 
