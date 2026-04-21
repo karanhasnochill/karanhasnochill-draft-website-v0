@@ -40,7 +40,7 @@ const AboutSection = () => {
             },
             {
               title: "Observationist",
-              description: "I like to see the world through minimal filters and deliberation. The world is unbelievable and a sheer delight to live in.",
+              description: "I see the world through unbridled filters limiting prior judgments to enable room for magic.",
               icon: <Eye size={32} className="text-primary" />,
               backgroundImage: contentCreatorBg
             }
