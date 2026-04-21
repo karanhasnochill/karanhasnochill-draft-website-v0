@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui-custom/button";
-import { ArrowUp } from "lucide-react";
+import { ArrowUp, User, FileText, Briefcase, BookOpen, Mail } from "lucide-react";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -53,13 +53,13 @@ const Navigation = () => {
     });
   };
 
-  // Map display names to section IDs
-  const sectionNames = {
-    "hero": "Karan",
-    "about": "About",
-    "projects": "Projects",
-    "videos": "Thoughts",
-    "contact": "Contact"
+  // Map display names and active icons to section IDs
+  const sectionConfig: Record<string, { name: string; Icon: typeof User }> = {
+    hero: { name: "Karan", Icon: User },
+    about: { name: "About", Icon: FileText },
+    projects: { name: "Projects", Icon: Briefcase },
+    videos: { name: "Thoughts", Icon: BookOpen },
+    contact: { name: "Contact", Icon: Mail },
   };
 
   return (
@@ -72,24 +72,25 @@ const Navigation = () => {
       >
         <nav className="container mx-auto flex items-center justify-center">
           <ul className="flex items-center space-x-1 sm:space-x-2">
-            {Object.entries(sectionNames).map(([id, name]) => (
+            {Object.entries(sectionConfig).map(([id, { name, Icon }]) => (
               <li key={id}>
                 <button
                   onClick={() => scrollToSection(id)}
                   className={cn(
-                    "relative px-3 py-2 text-sm font-medium transition-colors",
-                    activeSection === id 
-                      ? "text-primary" 
+                    "relative flex flex-col items-center px-3 py-2 text-sm font-medium transition-colors",
+                    activeSection === id
+                      ? "text-primary"
                       : "text-foreground/70 hover:text-foreground"
                   )}
                 >
                   {name}
-                  {activeSection === id && (
-                    <span 
-                      className="absolute bottom-0 left-1/2 w-1 h-1 bg-primary rounded-full transform -translate-x-1/2 transition-all duration-300"
-                      style={{ opacity: 1 }}
-                    />
-                  )}
+                  <Icon
+                    size={14}
+                    className={cn(
+                      "mt-0.5 transition-all duration-300",
+                      activeSection === id ? "opacity-100 scale-100" : "opacity-0 scale-75"
+                    )}
+                  />
                 </button>
               </li>
             ))}
