@@ -60,6 +60,10 @@ const HeroSection = () => {
             Contact Me
           </Button>
         </div>
+        
+        <p className="mt-10 text-sm text-foreground/60 text-center max-w-3xl mx-auto animate-slide-up" style={{ animationDelay: "0.3s" }}>
+          I get a little creative here and there when I'm not playing video games.
+        </p>
       </div>
       
     </section>
