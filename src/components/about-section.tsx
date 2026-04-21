@@ -1,5 +1,5 @@
 import React from "react";
-import { Palette, Code, Video } from "lucide-react";
+import { Palette, Briefcase, Eye } from "lucide-react";
 import designerBg from "@/assets/designer-bg.jpg";
 import developerBg from "@/assets/developer-bg.jpg";
 import contentCreatorBg from "@/assets/content-creator-bg.jpg";
@@ -33,15 +33,15 @@ const AboutSection = () => {
               backgroundImage: designerBg
             },
             {
-              title: "Developer",
-              description: "I build robust applications using modern technologies, ensuring optimal performance and reliability.",
-              icon: <Code size={32} className="text-primary" />,
+              title: "Businessman",
+              description: "I build, promote, and invest in businesses that stem from social and environmental needs.",
+              icon: <Briefcase size={32} className="text-primary" />,
               backgroundImage: developerBg
             },
             {
-              title: "Content Creator",
-              description: "I capture and share gaming highlights, creating entertaining and engaging video content.",
-              icon: <Video size={32} className="text-primary" />,
+              title: "Observationist",
+              description: "I like to see the world through minimal filters and deliberation. The world is unbelievable and a sheer delight to live in.",
+              icon: <Eye size={32} className="text-primary" />,
               backgroundImage: contentCreatorBg
             }
           ].map((item, index) => (
