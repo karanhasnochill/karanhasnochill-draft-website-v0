@@ -10,7 +10,7 @@ const Footer = () => {
         </p>
         <p className="text-center text-sm text-foreground/60 inline-flex items-center gap-2">
           <Rocket size={14} />
-          Personal portfolio website for Karan Sethi designed by Karan Sethi for Karan Sethi's audience.
+          Personal portfolio website of Karan Sethi designed by Karan Sethi for Karan Sethi's audience.
         </p>
       </div>
     </footer>
