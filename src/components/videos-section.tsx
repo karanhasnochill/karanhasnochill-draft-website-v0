@@ -73,10 +73,7 @@ const VideosSection = () => {
                 <h3 className="text-lg font-semibold mb-2 text-left group-hover:text-primary transition-colors">
                   {thought.title}
                 </h3>
-                <p className="text-sm text-foreground/70 text-left mb-4">{thought.description}</p>
-                <div className="flex items-center gap-1 text-primary text-sm font-medium">
-                  Read post <ExternalLink size={14} />
-                </div>
+                <p className="text-sm text-foreground/70 text-left">{thought.description}</p>
               </div>
             </a>
           ))}
