@@ -67,7 +67,7 @@ const AboutSection = () => {
         </div>
 
         <div className="mt-16 text-center">
-          <p className="text-sm text-foreground/60 mb-4">I also like to speak about</p>
+          <p className="text-sm text-foreground/60 mb-4 max-w-3xl mx-auto">Although our understanding of the world around us is severely limited, it is through combined dialogue and cooperative action that humanity has started making a little sense of it. I'd like to speak about these topics -</p>
           <div className="flex flex-wrap justify-center gap-2">
             {[
               { name: "Sustainability", icon: <Leaf size={14} />, color: "text-emerald-400" },
