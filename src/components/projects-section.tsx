@@ -186,16 +186,10 @@ const ProjectsSection = () => {
                     ))}
                   </div>
 
-                  <div className="mb-4">
-                    <span
-                      className={cn(
-                        "inline-block px-3 py-1 text-xs font-semibold rounded-full",
-                        styles.status
-                      )}
-                    >
-                      {project.status}
-                    </span>
-                  </div>
+                  <p className={cn("mb-4 text-center", isList ? "sm:text-left" : "")}>
+                    <span className="text-foreground/80">{project.status}</span>
+                  </p>
+
 
                   <div className={cn("flex mt-auto", isList ? "justify-start" : "justify-center")}>
                     <Button
