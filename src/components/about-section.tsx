@@ -24,6 +24,10 @@ const AboutSection = () => {
           </p>
         </div>
 
+        <p className="text-sm text-foreground/60 text-center max-w-3xl mx-auto mb-8">
+          I get a little creative here and there when I'm not playing video games.
+        </p>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
             {
