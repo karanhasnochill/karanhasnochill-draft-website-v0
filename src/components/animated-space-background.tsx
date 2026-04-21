@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
 interface SpaceObject {
   id: number;
@@ -11,8 +11,47 @@ interface SpaceObject {
   delay: number;
 }
 
+// Icon shapes used in the pinstripe grid (rendered as inline SVG)
+const ICON_SHAPES = [
+  <g key="music"><path d="M2 18V4l10-2v12" /><circle cx="2" cy="18" r="2.2" /><circle cx="12" cy="14" r="2.2" /></g>,
+  <g key="bulb"><path d="M9 18h6M10 21h4M6 10a6 6 0 1 1 12 0c0 3-2 4-3 6H9c-1-2-3-3-3-6Z" /></g>,
+  <g key="briefcase"><rect x="2" y="6" width="20" height="14" rx="2" /><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M2 13h20" /></g>,
+  <g key="trend"><path d="M2 18l7-7 4 4 7-9" /><path d="M14 6h6v6" /></g>,
+  <g key="gamepad"><path d="M6 12h4M8 10v4M15 12h.01M18 10h.01" /><rect x="2" y="6" width="22" height="14" rx="5" /></g>,
+  <g key="book"><path d="M3 4a2 2 0 0 1 2-2h13v18H5a2 2 0 0 1-2-2Z" /><path d="M18 2v18" /></g>,
+  <g key="rocket"><path d="M12 2c4 3 6 7 6 11l-3 3-3-2-3 2-3-3c0-4 2-8 6-11Z" /><circle cx="12" cy="10" r="1.5" /><path d="M9 18l-2 4 4-2M15 18l2 4-4-2" /></g>,
+  <g key="planet"><circle cx="10" cy="10" r="6" /><ellipse cx="10" cy="10" rx="11" ry="3.5" transform="rotate(-20 10 10)" /></g>,
+  <g key="headphones"><path d="M3 14v-2a9 9 0 0 1 18 0v2" /><path d="M3 14h4v6H5a2 2 0 0 1-2-2ZM21 14h-4v6h2a2 2 0 0 0 2-2Z" /></g>,
+  <g key="coin"><circle cx="10" cy="10" r="8" /><path d="M10 5v10M7 8h5a1.5 1.5 0 0 1 0 3H8a1.5 1.5 0 0 0 0 3h5" /></g>,
+  <g key="star"><path d="M9 1l2.4 5.4L17 7l-4 4 1 6-5-3-5 3 1-6L1 7l5.6-.6Z" /></g>,
+];
+
 const AnimatedSpaceBackground = () => {
   const [spaceObjects, setSpaceObjects] = useState<SpaceObject[]>([]);
+  const [gridSize, setGridSize] = useState({ cols: 20, rows: 20 });
+
+  useEffect(() => {
+    const updateGrid = () => {
+      // 90px cell, oversized 200% rotated container
+      const w = window.innerWidth * 2;
+      const h = window.innerHeight * 2;
+      const cell = 90;
+      setGridSize({ cols: Math.ceil(w / cell), rows: Math.ceil(h / cell) });
+    };
+    updateGrid();
+    window.addEventListener('resize', updateGrid);
+    return () => window.removeEventListener('resize', updateGrid);
+  }, []);
+
+  const pinstripeIcons = useMemo(() => {
+    const total = gridSize.cols * gridSize.rows;
+    return Array.from({ length: total }, (_, i) => ({
+      shape: i % ICON_SHAPES.length,
+      duration: 3 + Math.random() * 5, // 3s - 8s
+      delay: Math.random() * 6,
+      baseOpacity: 0.06 + Math.random() * 0.06, // 0.06 - 0.12 (10% more transparent than before)
+    }));
+  }, [gridSize]);
 
   useEffect(() => {
     const generateSpaceObjects = () => {
