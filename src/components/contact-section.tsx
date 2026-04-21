@@ -24,7 +24,7 @@ const ContactSection = () => {
           <div className="flex justify-center max-w-2xl w-full mb-12">
             <div className="glass-panel p-8 rounded-2xl flex flex-col items-center text-center transform transition-all duration-300 hover:translate-y-[-5px] max-w-md">
               <h3 className="text-xl font-semibold mb-4">Social Media</h3>
-              <p className="text-foreground/80 mb-6">Please don't expect a timely response from me - I may be occupied somewhere, playing video games, or just feeding stray cats.</p>
+              <p className="text-foreground/80 mb-6">Please don't expect a timely response from me - I may be occupied somewhere, playing video games, or just feeding stray cats. However, I'll be happy connect whenever I can.</p>
               <div className="flex flex-wrap gap-3 justify-center">
                 <Button 
                   size="sm"
