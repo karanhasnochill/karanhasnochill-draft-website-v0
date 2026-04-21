@@ -81,11 +81,12 @@ const accentStyles: Record<string, { tag: string; status: string; title: string 
 
 const ProjectsSection = () => {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
+  const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
 
   return (
     <section id="projects" className="py-24 px-6 bg-secondary/50">
       <div className="container max-w-5xl mx-auto">
-        <div className="flex flex-col items-center text-center mb-16 animate-fade-in">
+        <div className="relative flex flex-col items-center text-center mb-16 animate-fade-in">
           <span className="inline-block px-3 py-1 mb-4 text-sm font-medium bg-primary/10 text-primary rounded-full">
             Projects
           </span>
@@ -96,20 +97,66 @@ const ProjectsSection = () => {
           <p className="max-w-2xl text-foreground/80 text-lg">
             Explore my latest projects showcasing my skills in design, development, and problem-solving.
           </p>
+
+          <div className="mt-6 md:mt-0 md:absolute md:right-0 md:top-0 inline-flex items-center gap-1 p-1 rounded-full border border-border/50 bg-background/40 backdrop-blur-sm">
+            <button
+              type="button"
+              aria-label="Grid view"
+              aria-pressed={viewMode === "grid"}
+              onClick={() => setViewMode("grid")}
+              className={cn(
+                "p-1.5 rounded-full transition-colors",
+                viewMode === "grid"
+                  ? "bg-primary text-primary-foreground"
+                  : "text-foreground/60 hover:text-foreground"
+              )}
+            >
+              <LayoutGrid size={16} />
+            </button>
+            <button
+              type="button"
+              aria-label="List view"
+              aria-pressed={viewMode === "list"}
+              onClick={() => setViewMode("list")}
+              className={cn(
+                "p-1.5 rounded-full transition-colors",
+                viewMode === "list"
+                  ? "bg-primary text-primary-foreground"
+                  : "text-foreground/60 hover:text-foreground"
+              )}
+            >
+              <List size={16} />
+            </button>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div
+          className={cn(
+            viewMode === "grid"
+              ? "grid grid-cols-1 md:grid-cols-2 gap-8"
+              : "flex flex-col gap-6"
+          )}
+        >
           {projectsData.map((project, index) => {
             const styles = accentStyles[project.accent];
+            const isList = viewMode === "list";
             return (
               <div
                 key={index}
-                className="group relative bg-card rounded-2xl overflow-hidden shadow-md transform transition-all duration-300 hover:shadow-xl animate-fade-in flex flex-col"
+                className={cn(
+                  "group relative bg-card rounded-2xl overflow-hidden shadow-md transform transition-all duration-300 hover:shadow-xl animate-fade-in",
+                  isList ? "flex flex-col sm:flex-row" : "flex flex-col"
+                )}
                 style={{ animationDelay: `${index * 100}ms` }}
                 onMouseEnter={() => setHoveredProject(index)}
                 onMouseLeave={() => setHoveredProject(null)}
               >
-                <div className="h-56 overflow-hidden">
+                <div
+                  className={cn(
+                    "overflow-hidden flex-shrink-0",
+                    isList ? "h-48 sm:h-auto sm:w-56" : "h-56"
+                  )}
+                >
                   <img
                     src={project.image}
                     alt={project.title}
@@ -150,14 +197,14 @@ const ProjectsSection = () => {
                     </span>
                   </div>
 
-                  <div className="flex justify-center mt-auto">
+                  <div className={cn("flex mt-auto", isList ? "justify-start" : "justify-center")}>
                     <Button
                       variant="primary"
                       size="sm"
                       icon={<ExternalLink size={16} />}
                       iconPosition="right"
                       onClick={() => window.open(project.links.live, "_blank")}
-                      className="w-full max-w-xs"
+                      className={cn(isList ? "w-auto" : "w-full max-w-xs")}
                     >
                       Visit Website
                     </Button>
@@ -167,9 +214,5 @@ const ProjectsSection = () => {
             );
           })}
         </div>
-      </div>
-    </section>
-  );
-};
 
 export default ProjectsSection;
