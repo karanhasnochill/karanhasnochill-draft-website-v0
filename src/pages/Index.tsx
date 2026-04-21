@@ -45,7 +45,7 @@ const Index = () => {
   return (
     <div
       id="main-content"
-      className="min-h-screen bg-background text-foreground opacity-0 transition-opacity duration-500 dark"
+      className="min-h-screen text-foreground opacity-0 transition-opacity duration-500 dark"
     >
       <Navigation />
       <HeroSection />

@@ -134,68 +134,57 @@ const AnimatedSpaceBackground = () => {
         className="fixed inset-0 pointer-events-none z-0"
         style={{
           backgroundImage: `url("data:image/svg+xml;utf8,${encodeURIComponent(
-            `<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'>
-              <g fill='none' stroke='hsl(217 91% 60%)' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round' opacity='0.18'>
-                <!-- music note -->
-                <g transform='translate(10,16)'>
+            `<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'>
+              <g fill='none' stroke='hsl(217, 91%, 60%)' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' opacity='0.35'>
+                <g transform='translate(12,18)'>
                   <path d='M2 18V4l10-2v12'/>
                   <circle cx='2' cy='18' r='2.2'/>
                   <circle cx='12' cy='14' r='2.2'/>
                 </g>
-                <!-- lightbulb (creativity) -->
-                <g transform='translate(70,14)'>
+                <g transform='translate(72,16)'>
                   <path d='M9 18h6M10 21h4M6 10a6 6 0 1 1 12 0c0 3-2 4-3 6H9c-1-2-3-3-3-6Z'/>
                 </g>
-                <!-- briefcase (business) -->
-                <g transform='translate(130,14)'>
+                <g transform='translate(132,16)'>
                   <rect x='2' y='6' width='20' height='14' rx='2'/>
                   <path d='M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M2 13h20'/>
                 </g>
-                <!-- trending up (investments) -->
-                <g transform='translate(190,16)'>
+                <g transform='translate(196,18)'>
                   <path d='M2 18l7-7 4 4 7-9'/>
                   <path d='M14 6h6v6'/>
                 </g>
-                <!-- gamepad (video games) -->
-                <g transform='translate(40,90)'>
+                <g transform='translate(42,98)'>
                   <path d='M6 12h4M8 10v4M15 12h.01M18 10h.01'/>
                   <rect x='2' y='6' width='22' height='14' rx='5'/>
                 </g>
-                <!-- book -->
-                <g transform='translate(110,90)'>
+                <g transform='translate(112,98)'>
                   <path d='M3 4a2 2 0 0 1 2-2h13v18H5a2 2 0 0 1-2-2Z'/>
                   <path d='M18 2v18'/>
                 </g>
-                <!-- rocket (space) -->
-                <g transform='translate(170,90)'>
+                <g transform='translate(176,98)'>
                   <path d='M12 2c4 3 6 7 6 11l-3 3-3-2-3 2-3-3c0-4 2-8 6-11Z'/>
                   <circle cx='12' cy='10' r='1.5'/>
                   <path d='M9 18l-2 4 4-2M15 18l2 4-4-2'/>
                 </g>
-                <!-- planet -->
-                <g transform='translate(10,160)'>
+                <g transform='translate(12,178)'>
                   <circle cx='10' cy='10' r='6'/>
                   <ellipse cx='10' cy='10' rx='11' ry='3.5' transform='rotate(-20 10 10)'/>
                 </g>
-                <!-- headphones (music) -->
-                <g transform='translate(75,160)'>
+                <g transform='translate(78,178)'>
                   <path d='M3 14v-2a9 9 0 0 1 18 0v2'/>
                   <path d='M3 14h4v6H5a2 2 0 0 1-2-2ZM21 14h-4v6h2a2 2 0 0 0 2-2Z'/>
                 </g>
-                <!-- coin (investments) -->
-                <g transform='translate(140,160)'>
+                <g transform='translate(144,178)'>
                   <circle cx='10' cy='10' r='8'/>
                   <path d='M10 5v10M7 8h5a1.5 1.5 0 0 1 0 3H8a1.5 1.5 0 0 0 0 3h5'/>
                 </g>
-                <!-- star -->
-                <g transform='translate(195,162)'>
+                <g transform='translate(204,180)'>
                   <path d='M9 1l2.4 5.4L17 7l-4 4 1 6-5-3-5 3 1-6L1 7l5.6-.6Z'/>
                 </g>
               </g>
             </svg>`
           )}")`,
           backgroundRepeat: 'repeat',
-          backgroundSize: '220px 220px',
+          backgroundSize: '240px 240px',
         }}
       />
       {/* Animated space objects layer */}
