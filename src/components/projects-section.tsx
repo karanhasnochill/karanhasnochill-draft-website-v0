@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui-custom/button";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, LayoutGrid, List } from "lucide-react";
 
 // Updated project data
 const projectsData = [
