@@ -58,7 +58,7 @@ const Navigation = () => {
     "hero": "Karan",
     "about": "About",
     "projects": "Projects",
-    "videos": "Videos",
+    "videos": "Thoughts",
     "contact": "Contact"
   };
 
