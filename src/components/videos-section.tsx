@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "@/components/ui-custom/button";
-import { BookOpen, ExternalLink } from "lucide-react";
+import { BookOpen } from "lucide-react";
 
 // Sample thoughts/blog data
 const thoughtsData = [
