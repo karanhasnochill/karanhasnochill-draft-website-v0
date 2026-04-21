@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
 interface SpaceObject {
   id: number;
@@ -11,8 +11,47 @@ interface SpaceObject {
   delay: number;
 }
 
+// Icon shapes used in the pinstripe grid (rendered as inline SVG)
+const ICON_SHAPES = [
+  <g key="music"><path d="M2 18V4l10-2v12" /><circle cx="2" cy="18" r="2.2" /><circle cx="12" cy="14" r="2.2" /></g>,
+  <g key="bulb"><path d="M9 18h6M10 21h4M6 10a6 6 0 1 1 12 0c0 3-2 4-3 6H9c-1-2-3-3-3-6Z" /></g>,
+  <g key="briefcase"><rect x="2" y="6" width="20" height="14" rx="2" /><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M2 13h20" /></g>,
+  <g key="trend"><path d="M2 18l7-7 4 4 7-9" /><path d="M14 6h6v6" /></g>,
+  <g key="gamepad"><path d="M6 12h4M8 10v4M15 12h.01M18 10h.01" /><rect x="2" y="6" width="22" height="14" rx="5" /></g>,
+  <g key="book"><path d="M3 4a2 2 0 0 1 2-2h13v18H5a2 2 0 0 1-2-2Z" /><path d="M18 2v18" /></g>,
+  <g key="rocket"><path d="M12 2c4 3 6 7 6 11l-3 3-3-2-3 2-3-3c0-4 2-8 6-11Z" /><circle cx="12" cy="10" r="1.5" /><path d="M9 18l-2 4 4-2M15 18l2 4-4-2" /></g>,
+  <g key="planet"><circle cx="10" cy="10" r="6" /><ellipse cx="10" cy="10" rx="11" ry="3.5" transform="rotate(-20 10 10)" /></g>,
+  <g key="headphones"><path d="M3 14v-2a9 9 0 0 1 18 0v2" /><path d="M3 14h4v6H5a2 2 0 0 1-2-2ZM21 14h-4v6h2a2 2 0 0 0 2-2Z" /></g>,
+  <g key="coin"><circle cx="10" cy="10" r="8" /><path d="M10 5v10M7 8h5a1.5 1.5 0 0 1 0 3H8a1.5 1.5 0 0 0 0 3h5" /></g>,
+  <g key="star"><path d="M9 1l2.4 5.4L17 7l-4 4 1 6-5-3-5 3 1-6L1 7l5.6-.6Z" /></g>,
+];
+
 const AnimatedSpaceBackground = () => {
   const [spaceObjects, setSpaceObjects] = useState<SpaceObject[]>([]);
+  const [gridSize, setGridSize] = useState({ cols: 20, rows: 20 });
+
+  useEffect(() => {
+    const updateGrid = () => {
+      // 90px cell, oversized 200% rotated container
+      const w = window.innerWidth * 2;
+      const h = window.innerHeight * 2;
+      const cell = 90;
+      setGridSize({ cols: Math.ceil(w / cell), rows: Math.ceil(h / cell) });
+    };
+    updateGrid();
+    window.addEventListener('resize', updateGrid);
+    return () => window.removeEventListener('resize', updateGrid);
+  }, []);
+
+  const pinstripeIcons = useMemo(() => {
+    const total = gridSize.cols * gridSize.rows;
+    return Array.from({ length: total }, (_, i) => ({
+      shape: i % ICON_SHAPES.length,
+      duration: 3 + Math.random() * 5, // 3s - 8s
+      delay: Math.random() * 6,
+      baseOpacity: 0.06 + Math.random() * 0.06, // 0.06 - 0.12 (10% more transparent than before)
+    }));
+  }, [gridSize]);
 
   useEffect(() => {
     const generateSpaceObjects = () => {
@@ -129,12 +168,10 @@ const AnimatedSpaceBackground = () => {
 
   return (
     <>
-      {/* Pinstripe icon pattern layer */}
-      <div
-        className="fixed inset-0 pointer-events-none z-0 overflow-hidden"
-      >
+      {/* Pinstripe icon pattern layer (45° rotated grid with twinkle) */}
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         <div
-          className="absolute"
+          className="absolute grid"
           style={{
             top: '-50%',
             left: '-50%',
@@ -142,60 +179,36 @@ const AnimatedSpaceBackground = () => {
             height: '200%',
             transform: 'rotate(45deg)',
             transformOrigin: 'center',
-            backgroundImage: `url("data:image/svg+xml;utf8,${encodeURIComponent(
-              `<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'>
-                <g fill='none' stroke='hsl(217, 91%, 60%)' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' opacity='0.18'>
-                  <g transform='translate(12,18)'>
-                    <path d='M2 18V4l10-2v12'/>
-                    <circle cx='2' cy='18' r='2.2'/>
-                    <circle cx='12' cy='14' r='2.2'/>
-                  </g>
-                  <g transform='translate(72,16)'>
-                    <path d='M9 18h6M10 21h4M6 10a6 6 0 1 1 12 0c0 3-2 4-3 6H9c-1-2-3-3-3-6Z'/>
-                  </g>
-                  <g transform='translate(132,16)'>
-                    <rect x='2' y='6' width='20' height='14' rx='2'/>
-                    <path d='M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M2 13h20'/>
-                  </g>
-                  <g transform='translate(196,18)'>
-                    <path d='M2 18l7-7 4 4 7-9'/>
-                    <path d='M14 6h6v6'/>
-                  </g>
-                  <g transform='translate(42,98)'>
-                    <path d='M6 12h4M8 10v4M15 12h.01M18 10h.01'/>
-                    <rect x='2' y='6' width='22' height='14' rx='5'/>
-                  </g>
-                  <g transform='translate(112,98)'>
-                    <path d='M3 4a2 2 0 0 1 2-2h13v18H5a2 2 0 0 1-2-2Z'/>
-                    <path d='M18 2v18'/>
-                  </g>
-                  <g transform='translate(176,98)'>
-                    <path d='M12 2c4 3 6 7 6 11l-3 3-3-2-3 2-3-3c0-4 2-8 6-11Z'/>
-                    <circle cx='12' cy='10' r='1.5'/>
-                    <path d='M9 18l-2 4 4-2M15 18l2 4-4-2'/>
-                  </g>
-                  <g transform='translate(12,178)'>
-                    <circle cx='10' cy='10' r='6'/>
-                    <ellipse cx='10' cy='10' rx='11' ry='3.5' transform='rotate(-20 10 10)'/>
-                  </g>
-                  <g transform='translate(78,178)'>
-                    <path d='M3 14v-2a9 9 0 0 1 18 0v2'/>
-                    <path d='M3 14h4v6H5a2 2 0 0 1-2-2ZM21 14h-4v6h2a2 2 0 0 0 2-2Z'/>
-                  </g>
-                  <g transform='translate(144,178)'>
-                    <circle cx='10' cy='10' r='8'/>
-                    <path d='M10 5v10M7 8h5a1.5 1.5 0 0 1 0 3H8a1.5 1.5 0 0 0 0 3h5'/>
-                  </g>
-                  <g transform='translate(204,180)'>
-                    <path d='M9 1l2.4 5.4L17 7l-4 4 1 6-5-3-5 3 1-6L1 7l5.6-.6Z'/>
-                  </g>
-                </g>
-              </svg>`
-            )}")`,
-            backgroundRepeat: 'repeat',
-            backgroundSize: '240px 240px',
+            gridTemplateColumns: `repeat(${gridSize.cols}, 90px)`,
+            gridAutoRows: '90px',
           }}
-        />
+        >
+          {pinstripeIcons.map((icon, i) => (
+            <div
+              key={i}
+              className="flex items-center justify-center animate-twinkle"
+              style={{
+                ['--twinkle-base' as string]: icon.baseOpacity,
+                ['--twinkle-duration' as string]: `${icon.duration}s`,
+                animationDelay: `${icon.delay}s`,
+                opacity: icon.baseOpacity,
+              }}
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="hsl(var(--primary))"
+                strokeWidth="1.4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                {ICON_SHAPES[icon.shape]}
+              </svg>
+            </div>
+          ))}
+        </div>
       </div>
       {/* Animated space objects layer */}
       <div className="fixed inset-0 pointer-events-none z-0">
