@@ -1,18 +1,9 @@
 
 import React from "react";
-import { Button } from "@/components/ui-custom/button"; 
-import { ArrowDown } from "lucide-react";
+import { Button } from "@/components/ui-custom/button";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+
 const HeroSection = () => {
-  const scrollToAbout = () => {
-    const aboutSection = document.getElementById("about");
-    if (aboutSection) {
-      window.scrollTo({
-        top: aboutSection.offsetTop - 80,
-        behavior: "smooth"
-      });
-    }
-  };
 
   return (
     <section 
@@ -63,15 +54,6 @@ const HeroSection = () => {
         </div>
       </div>
       
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-pulse-slow">
-        <button 
-          onClick={scrollToAbout}
-          className="bg-secondary text-secondary-foreground p-3 rounded-full transition-transform hover:translate-y-1"
-          aria-label="Scroll down"
-        >
-          <ArrowDown size={20} />
-        </button>
-      </div>
     </section>
   );
 };
