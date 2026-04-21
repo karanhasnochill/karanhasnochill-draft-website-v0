@@ -191,14 +191,25 @@ const ProjectsSection = () => {
                   </p>
 
 
-                  <div className={cn("flex mt-auto", isList ? "justify-start" : "justify-center")}>
+                  <div className={cn("flex flex-wrap gap-2 mt-auto", isList ? "justify-start" : "justify-center")}>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      icon={<Mail size={16} />}
+                      iconPosition="left"
+                      onClick={() => {
+                        const contact = document.getElementById("contact");
+                        contact?.scrollIntoView({ behavior: "smooth" });
+                      }}
+                    >
+                      Enquire
+                    </Button>
                     <Button
                       variant="primary"
                       size="sm"
-                      icon={<ExternalLink size={16} />}
-                      iconPosition="right"
+                      icon={<Globe size={16} />}
+                      iconPosition="left"
                       onClick={() => window.open(project.links.live, "_blank")}
-                      className={cn(isList ? "w-auto" : "w-full max-w-xs")}
                     >
                       Visit Website
                     </Button>
