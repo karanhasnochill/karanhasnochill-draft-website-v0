@@ -3,6 +3,7 @@ import React from "react";
 import { Button } from "@/components/ui-custom/button";
 import { Briefcase, Mail } from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import profileImage from "@/assets/profile.png";
 
 const HeroSection = () => {
 
@@ -17,7 +18,7 @@ const HeroSection = () => {
         <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-primary mb-8 animate-scale-in">
           <Avatar className="w-full h-full">
             <AvatarImage 
-              src="/lovable-uploads/f4a3bc47-45e7-44dd-ac29-6791e541cd76.png" 
+              src={profileImage} 
               alt="Karan's profile picture" 
               className="w-full h-full object-cover"
             />
