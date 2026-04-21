@@ -1,5 +1,5 @@
 import React from "react";
-import { Palette, Briefcase, Eye } from "lucide-react";
+import { Palette, Briefcase, Eye, Leaf, FlaskConical, Paintbrush, Plane, Trophy, Building2, Sparkles } from "lucide-react";
 import designerBg from "@/assets/designer-bg.jpg";
 import developerBg from "@/assets/developer-bg.jpg";
 import natureBg from "@/assets/nature-bg.jpg";
@@ -69,12 +69,21 @@ const AboutSection = () => {
         <div className="mt-16 text-center">
           <p className="text-sm text-foreground/60 mb-4">I also like to speak about</p>
           <div className="flex flex-wrap justify-center gap-2">
-            {["Sustainability", "Science", "Art", "Travel", "Sports", "Infrastructure", "Cosmos"].map((tag) => (
+            {[
+              { name: "Sustainability", icon: <Leaf size={14} />, color: "text-emerald-400" },
+              { name: "Science", icon: <FlaskConical size={14} />, color: "text-cyan-400" },
+              { name: "Art", icon: <Paintbrush size={14} />, color: "text-pink-400" },
+              { name: "Travel", icon: <Plane size={14} />, color: "text-sky-400" },
+              { name: "Sports", icon: <Trophy size={14} />, color: "text-amber-400" },
+              { name: "Infrastructure", icon: <Building2 size={14} />, color: "text-stone-400" },
+              { name: "Cosmos", icon: <Sparkles size={14} />, color: "text-violet-400" }
+            ].map((tag) => (
               <div
-                key={tag}
-                className="px-4 py-2 text-sm font-medium bg-secondary/50 text-secondary-foreground rounded-full border border-border/50"
+                key={tag.name}
+                className={`flex items-center gap-2 px-4 py-2 text-sm font-medium bg-secondary/50 rounded-full border border-border/50 ${tag.color}`}
               >
-                {tag}
+                {tag.icon}
+                {tag.name}
               </div>
             ))}
           </div>
