@@ -62,7 +62,7 @@ const ContactSection = () => {
           </div>
           
           <p className="text-foreground/60 text-sm mt-8">
-            © {new Date().getFullYear()} Your Name. All rights reserved.
+            © {new Date().getFullYear()} Karan Sethi under karanhasnochill. All rights reserved.
           </p>
         </div>
       </div>
