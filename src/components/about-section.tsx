@@ -65,6 +65,20 @@ const AboutSection = () => {
             </div>
           ))}
         </div>
+
+        <div className="mt-16 text-center">
+          <p className="text-sm text-foreground/60 mb-4">I also like to speak about</p>
+          <div className="flex flex-wrap justify-center gap-2">
+            {["Sustainability", "Science", "Art", "Travel", "Sports", "Infrastructure", "Cosmos"].map((tag) => (
+              <div
+                key={tag}
+                className="px-4 py-2 text-sm font-medium bg-secondary/50 text-secondary-foreground rounded-full border border-border/50"
+              >
+                {tag}
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
