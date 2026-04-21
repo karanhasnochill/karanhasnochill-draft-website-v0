@@ -214,5 +214,9 @@ const ProjectsSection = () => {
             );
           })}
         </div>
+      </div>
+    </section>
+  );
+};
 
 export default ProjectsSection;
